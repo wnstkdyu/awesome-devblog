@@ -17,6 +17,154 @@
 <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+<style>
+body {
+  font-family: sans-serif;
+}
+.page-content {
+  padding: 20px;
+}
+.entry {
+  padding: 10px;
+  border: 1px solid #dedede;
+}
+</style>
+
+<script>
+// 메뉴를 표시하기 위해 각 피드 객체를 저장해놓을 자료구조
+// 피드당 한번만 표시되어야 하기 때문에 Set을 이용한다.
+var feeds = new Set();
+
+// 코드 전체 구조는 jQuery Feeds 가이드대로 작성함.
+// https://github.com/camagu/jquery-feeds/
+$('.page-content').feeds({
+  // 주소 찾아서 등록하기 졸라 빡심 ㅠㅠ
+  feeds: {
+    강성훈: 'http://j.mearie.org/rss',
+    구종만: 'http://feeds.feedburner.com/theyearlyprophet/GGGO?format=xml',
+    권남: 'http://rss.egloos.com/blog/kwon37xi',
+    권정혁: 'http://feeds.feedburner.com/xguru?format=xml',
+    김국현: 'http://feeds.feedburner.com/goodhyun',
+    김놀부: 'http://nolboo.github.io/feed.xml',
+    김민수: 'http://www.kmshack.kr/rss',
+    김민장: 'http://rss.egloos.com/blog/minjang',
+    김슬기: 'http://blog.seulgi.kim/feeds/posts/default',
+    김우승: 'https://kimws.wordpress.com/feed/',
+    김재호: 'http://feeds.feedburner.com/crazytazo?format=xml',
+    김태곤: 'http://taegon.kim/feed',
+    김태호: 'http://androidhuman.com/rss',
+    김형준: 'http://www.gisdeveloper.co.kr/rss',
+    류광: 'http://occamsrazr.net/tt/index.xml',
+    박경훈: 'http://hoonsbara.tistory.com/rss',
+    박상길: 'http://likejazz.com/rss',
+    방준영: 'http://feeds.feedburner.com/junyoung?format=xml',
+    변정훈: 'http://feeds.feedburner.com/rss_outsider_dev?format=xml',
+    손영수: 'https://arload.wordpress.com/feed/',
+    송주성: 'http://emptydream.tistory.com/rss',
+    신영진: 'http://feeds.feedburner.com/codewiz',
+    신현석: 'http://hyeonseok.com/rss/',
+    조승연: 'http://blog.kivol.net/rss',
+    안종태: 'http://qnibus.com/feed/',
+    양병규: 'http://blog.rss.naver.com/delmadang.xml',
+    오동권: 'http://www.flowdas.com/blog/feeds/rss/',
+    오현석: 'http://www.enshahar.me/feeds/posts/default',
+    윤영식: 'http://mobicon.tistory.com/rss',
+    이병준: 'http://www.buggymind.com/rss',
+    이상욱: 'http://feeds.feedburner.com/sangwook?format=xml',
+    이윤창: 'http://daddycat.blogspot.com/feeds/posts/default',
+    장혜식: 'http://openlook.org/wp/feed/',
+    전희원: 'http://feeds.feedburner.com/gogamza?format=xml',
+    조대협: 'http://bcho.tistory.com/rss',
+    조영호: 'http://rss.egloos.com/blog/aeternum',
+    최범균: 'http://javacan.tistory.com/rss',
+    하호진: 'http://feeds.feedburner.com/Smartmob',
+    한승훈: 'http://kkamagui.tistory.com/rss',
+    허준회: 'https://joone.wordpress.com/feed/',
+    홍민희: 'http://blog.dahlia.kr/rss',
+    홍성철: 'http://blog.fupfin.com/?feed=rss2',
+    히언: 'http://rss.egloos.com/blog/recipes',
+    게임개발포에버: 'http://feeds.feedburner.com/gamedevforever?format=xml',
+    NHN: 'http://helloworld.naver.com/rss',
+    SSM: 'http://blog.secmem.org/rss',
+    이음: 'http://bigmatch.i-um.net/feed/',
+    아이디인큐: 'https://blogs.idincu.com/dev/feed/',
+    SK플래닛: 'http://feeds.feedburner.com/skpreadme?format=xml',
+    VCNC: 'http://engineering.vcnc.co.kr/atom.xml',
+    Google: 'http://feeds.feedburner.com/GoogleDevelopersKorea?format=xml',
+    Mozilla: 'http://hacks.mozilla.or.kr/feed/'
+  },
+  
+  // 각 글을 처리하기 전에 호출됨.
+  preprocess: function ( feed ) {
+
+    // 메뉴에 등록한다.
+    // 동일한 feed에 대해서도 중복해서 호출된다.
+    feeds.add(feed);
+
+    // 표시할 블로그를 설정하는 파라미터
+    var rssParam = getUrlParameter('feed');
+    
+    // feed 파라미터가 적혀있지 않으면 모두 본다.
+    if(rssParam == undefined) {
+      
+      // 14일 지난건 버림
+      var today = new Date();
+      var pubDate = new Date(this.publishedDate);
+      var during = today.getTime() - pubDate.getTime();
+      if(during > 14 * 24 * 60 * 60 * 1000) { // 일시분초밀리초
+        return false;
+      }
+    }
+    // feed 파라미터에 적힌대로 해당 블로그만 본다.
+    else {
+      // display only one source
+      if(rssParam !== feed.feedUrl) {
+        return false;
+      }
+    }
+  },
+  // 각 글을 어떻게 표시할지 구현하는 함수
+  entryTemplate: function(entry) {
+    
+    var template = 
+        '<div class="entry">' +
+          '<div><span><!=feedTitle!></span></div>' +
+          '<div><span><!=publishedDate!></span></div>' +
+          '<div><a href="<!=link!>" target="_blank"><h3><!=title!></h3></a></div>' +
+          '<div><p><!=contentSnippet!></p></div>' +
+        '</div>';
+    
+    return this.tmpl(template, entry);
+  },
+  // 모든 작업이 다 끝나면 호출된다.
+  onComplete: function(entries) {
+
+    // Set에 넣어놨던걸 메뉴에 추가한다.
+    // Set이라서 등록한 순서와는 다를 수 있다. 크게 문제되지 않는다.
+    feeds.forEach(function(item){
+      var menuDom = '<a class="mdl-navigation__link" href="' + item.feedUrl + '">'+ item.title + '</a>';
+      $('#menu').append(menuDom);
+    });    
+  }
+});
+
+// URL 파라미터의 값을 얻는다.
+// http://stackoverflow.com/questions/19491336/get-url-parameter-jquery
+function getUrlParameter(sParam)
+{
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++)
+  {
+    var sParameterName = sURLVariables[i].split('=');
+    if (sParameterName[0] == sParam)
+    {
+      return sParameterName[1];
+    }
+  }
+}
+</script>
+
 <!-- The drawer is always open in large screens. The header is always shown,
   even in small screens. -->
 <div class="demo-layout">
