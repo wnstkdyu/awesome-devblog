@@ -1,198 +1,720 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Awesome-devblog by sarojaba</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  
-<!-- import jQuery Feeds -->
-<script src="https://rawgit.com/camagu/jquery-feeds/master/jquery.feeds.min.js"></script>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Awesome-devblog</h1>
+        <p class="header">개발 블로그 모음</p>
 
-<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
-<script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/sarojaba/awesome-devblog/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/sarojaba/awesome-devblog/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/sarojaba/awesome-devblog">View On GitHub</a></li>
+        </ul>
 
-<style>
-body {
-  font-family: sans-serif;
-}
-.page-content {
-  padding: 20px;
-}
-.entry {
-  padding: 10px;
-  border: 1px solid #dedede;
-}
-</style>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/sarojaba">sarojaba</a></p>
 
-<script>
-// 메뉴를 표시하기 위해 각 피드 객체를 저장해놓을 자료구조
-// 피드당 한번만 표시되어야 하기 때문에 Set을 이용한다.
-var feeds = new Set();
 
-// 코드 전체 구조는 jQuery Feeds 가이드대로 작성함.
-// https://github.com/camagu/jquery-feeds/
-$('.page-content').feeds({
-  // 주소 찾아서 등록하기 졸라 빡심 ㅠㅠ
-  feeds: {
-    강성훈: 'http://j.mearie.org/rss',
-    구종만: 'http://feeds.feedburner.com/theyearlyprophet/GGGO?format=xml',
-    권남: 'http://rss.egloos.com/blog/kwon37xi',
-    권정혁: 'http://feeds.feedburner.com/xguru?format=xml',
-    김국현: 'http://feeds.feedburner.com/goodhyun',
-    김놀부: 'http://nolboo.github.io/feed.xml',
-    김민수: 'http://www.kmshack.kr/rss',
-    김민장: 'http://rss.egloos.com/blog/minjang',
-    김슬기: 'http://blog.seulgi.kim/feeds/posts/default',
-    김우승: 'https://kimws.wordpress.com/feed/',
-    김재호: 'http://feeds.feedburner.com/crazytazo?format=xml',
-    김태곤: 'http://taegon.kim/feed',
-    김태호: 'http://androidhuman.com/rss',
-    김형준: 'http://www.gisdeveloper.co.kr/rss',
-    류광: 'http://occamsrazr.net/tt/index.xml',
-    박경훈: 'http://hoonsbara.tistory.com/rss',
-    박상길: 'http://likejazz.com/rss',
-    방준영: 'http://feeds.feedburner.com/junyoung?format=xml',
-    변정훈: 'http://feeds.feedburner.com/rss_outsider_dev?format=xml',
-    손영수: 'https://arload.wordpress.com/feed/',
-    송주성: 'http://emptydream.tistory.com/rss',
-    신영진: 'http://feeds.feedburner.com/codewiz',
-    신현석: 'http://hyeonseok.com/rss/',
-    조승연: 'http://blog.kivol.net/rss',
-    안종태: 'http://qnibus.com/feed/',
-    양병규: 'http://blog.rss.naver.com/delmadang.xml',
-    오동권: 'http://www.flowdas.com/blog/feeds/rss/',
-    오현석: 'http://www.enshahar.me/feeds/posts/default',
-    윤영식: 'http://mobicon.tistory.com/rss',
-    이병준: 'http://www.buggymind.com/rss',
-    이상욱: 'http://feeds.feedburner.com/sangwook?format=xml',
-    이윤창: 'http://daddycat.blogspot.com/feeds/posts/default',
-    장혜식: 'http://openlook.org/wp/feed/',
-    전희원: 'http://feeds.feedburner.com/gogamza?format=xml',
-    조대협: 'http://bcho.tistory.com/rss',
-    조영호: 'http://rss.egloos.com/blog/aeternum',
-    최범균: 'http://javacan.tistory.com/rss',
-    하호진: 'http://feeds.feedburner.com/Smartmob',
-    한승훈: 'http://kkamagui.tistory.com/rss',
-    허준회: 'https://joone.wordpress.com/feed/',
-    홍민희: 'http://blog.dahlia.kr/rss',
-    홍성철: 'http://blog.fupfin.com/?feed=rss2',
-    히언: 'http://rss.egloos.com/blog/recipes',
-    게임개발포에버: 'http://feeds.feedburner.com/gamedevforever?format=xml',
-    NHN: 'http://helloworld.naver.com/rss',
-    SSM: 'http://blog.secmem.org/rss',
-    이음: 'http://bigmatch.i-um.net/feed/',
-    아이디인큐: 'https://blogs.idincu.com/dev/feed/',
-    SK플래닛: 'http://feeds.feedburner.com/skpreadme?format=xml',
-    VCNC: 'http://engineering.vcnc.co.kr/atom.xml',
-    Google: 'http://feeds.feedburner.com/GoogleDevelopersKorea?format=xml',
-    Mozilla: 'http://hacks.mozilla.or.kr/feed/'
-  },
-  
-  // 각 글을 처리하기 전에 호출됨.
-  preprocess: function ( feed ) {
+      </header>
+      <section>
+        <h2>
+<a id="목차" class="anchor" href="#%EB%AA%A9%EC%B0%A8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>목차</h2>
 
-    // 메뉴에 등록한다.
-    // 동일한 feed에 대해서도 중복해서 호출된다.
-    feeds.add(feed);
+<ul>
+<li><a href="https://github.com/sarojaba/awesome-devblog#%EA%B5%AD%EB%82%B4-%EA%B0%9C%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8">국내 개인 사이트</a></li>
+<li><a href="https://github.com/sarojaba/awesome-devblog#%EA%B5%AD%EB%82%B4-%ED%8C%80-%EC%82%AC%EC%9D%B4%ED%8A%B8">국내 팀 사이트</a></li>
+<li><a href="https://github.com/sarojaba/awesome-devblog#%EA%B5%AD%EC%99%B8-%EA%B0%9C%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8">국외 개인 사이트</a></li>
+<li><a href="https://github.com/sarojaba/awesome-devblog#%EA%B5%AD%EC%99%B8-%ED%8C%80-%EC%82%AC%EC%9D%B4%ED%8A%B8">국외 팀 사이트</a></li>
+</ul>
 
-    // 표시할 블로그를 설정하는 파라미터
-    var rssParam = getUrlParameter('feed');
-    
-    // feed 파라미터가 적혀있지 않으면 모두 본다.
-    if(rssParam == undefined) {
-      
-      // 14일 지난건 버림
-      var today = new Date();
-      var pubDate = new Date(this.publishedDate);
-      var during = today.getTime() - pubDate.getTime();
-      if(during > 14 * 24 * 60 * 60 * 1000) { // 일시분초밀리초
-        return false;
-      }
-    }
-    // feed 파라미터에 적힌대로 해당 블로그만 본다.
-    else {
-      // display only one source
-      if(rssParam !== feed.feedUrl) {
-        return false;
-      }
-    }
-  },
-  // 각 글을 어떻게 표시할지 구현하는 함수
-  entryTemplate: function(entry) {
-    
-    var template = 
-        '<div class="entry">' +
-          '<div><span><!=feedTitle!></span></div>' +
-          '<div><span><!=publishedDate!></span></div>' +
-          '<div><a href="<!=link!>" target="_blank"><h3><!=title!></h3></a></div>' +
-          '<div><p><!=contentSnippet!></p></div>' +
-        '</div>';
-    
-    return this.tmpl(template, entry);
-  },
-  // 모든 작업이 다 끝나면 호출된다.
-  onComplete: function(entries) {
+<h2>
+<a id="국내-개인-사이트" class="anchor" href="#%EA%B5%AD%EB%82%B4-%EA%B0%9C%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>국내 개인 사이트</h2>
 
-    // Set에 넣어놨던걸 메뉴에 추가한다.
-    // Set이라서 등록한 순서와는 다를 수 있다. 크게 문제되지 않는다.
-    feeds.forEach(function(item){
-      var menuDom = '<a class="mdl-navigation__link" href="' + item.feedUrl + '">'+ item.title + '</a>';
-      $('#menu').append(menuDom);
-    });    
-  }
-});
+<h3>
+<a id="ㄱ" class="anchor" href="#%E3%84%B1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㄱ</h3>
 
-// URL 파라미터의 값을 얻는다.
-// http://stackoverflow.com/questions/19491336/get-url-parameter-jquery
-function getUrlParameter(sParam)
-{
-  var sPageURL = window.location.search.substring(1);
-  var sURLVariables = sPageURL.split('&');
-  for (var i = 0; i < sURLVariables.length; i++)
-  {
-    var sParameterName = sURLVariables[i].split('=');
-    if (sParameterName[0] == sParam)
-    {
-      return sParameterName[1];
-    }
-  }
-}
-</script>
+<ul>
+<li>
+<a href="https://github.com/sarojaba/awesome-devblog/blob/master/ecogwiki.md">강규영</a>(<a href="http://www.ecogwiki.com/">블로그</a>)</li>
+<li>
+<a href="https://github.com/sarojaba/awesome-devblog/blob/master/charsyam.md">강대명</a>(<a href="https://charsyam.wordpress.com/">블로그</a>) - 서버 사이드</li>
+<li><a href="http://mearie.org/">강성훈</a></li>
+<li><a href="https://medium.com/@shaynekang">강성희</a></li>
+<li>
+<a href="https://brunch.co.kr/@alden">강진우</a> - Linux</li>
+<li>
+<a href="http://blog.naver.com/nackji80/">고득녕</a> - 네트워크</li>
+<li>
+<a href="https://jwgo.wordpress.com/">고재웅</a> - IT 칼럼</li>
+<li>
+<a href="http://hhko.tistory.com/">고형호</a> - Functional Programming</li>
+<li><a href="http://danielku.com/">구교준</a></li>
+<li>
+<a href="https://github.com/sarojaba/awesome-devblog/blob/master/theyearlyprophet.md">구종만</a>(<a href="http://theyearlyprophet.com/">블로그</a>) - 알고리즘</li>
+<li>
+<a href="http://kwon37xi.egloos.com/">권남</a> - Java</li>
+<li>
+<a href="http://willbesomething.com/">권장표</a> - 게임 기획</li>
+<li>
+<a href="http://xguru.net/guru">권정혁</a> - 개발 트렌드</li>
+<li>
+<a href="http://thoughts.chkwon.net/">권창현</a> - 산업공학</li>
+<li>
+<a href="http://kwang82.hankyung.com/">김광현(광파리)</a> - IT 소식</li>
+<li>
+<a href="http://goodhyun.com/">김국현</a> - IT 칼럼</li>
+<li>
+<a href="http://nolboo.github.io/">김놀부</a> - 번역 모음</li>
+<li><a href="http://nacyot.com/">김대권</a></li>
+<li>
+<a href="http://hatemogi.com/">김대현</a> - 백엔드</li>
+<li><a href="http://insanehong.kr/">김덕홍</a></li>
+<li><a href="http://www.dokyun.pe.kr/">김도균</a></li>
+<li><a href="http://himskim.egloos.com/">김명신</a></li>
+<li>
+<a href="http://html5lab.kr/">김명준</a> - 프론트엔드</li>
+<li>
+<a href="http://www.kmshack.kr/">김민수</a> - 안드로이드</li>
+<li>
+<a href="http://minjang.egloos.com/">김민장</a> - 컴퓨터 아키텍처</li>
+<li><a href="http://bomjun.tistory.com/">김범준</a></li>
+<li><a href="https://medium.com/@beejei">김범진</a></li>
+<li>
+<a href="http://kimbyeonghwan.tumblr.com/">김병환</a> - UX</li>
+<li><a href="http://blog.dsdstudio.net/">김보형</a></li>
+<li><a href="http://sungsoo.github.io/">김성수</a></li>
+<li>
+<a href="http://greemate.tistory.com/">김성현</a> - 윈도우즈 커널</li>
+<li><a href="http://raccoonyy.github.io/">김성호</a></li>
+<li>
+<a href="http://www.se.or.kr/">김성훈</a> - 학교 생활</li>
+<li>
+<a href="https://subokim.wordpress.com/">김수보</a> - IT 칼럼</li>
+<li>
+<a href="http://blog.seulgi.kim/">김슬기</a> - 서울대생</li>
+<li>
+<a href="http://haruair.com/">김용균</a> - 웹</li>
+<li>
+<a href="http://moogi.new21.org/">김용묵</a> - 한글 언어, C++</li>
+<li><a href="http://knight76.tistory.com/">김용환</a></li>
+<li>
+<a href="http://blog.naver.com/drvoss">김용현</a> - C++</li>
+<li>
+<a href="https://kimws.wordpress.com/">김우승</a> - 빅데이터</li>
+<li>
+<a href="http://androidkr.blogspot.kr/">김원일</a> - 안드로이드</li>
+<li><a href="https://jaigouk.com/">김재국</a></li>
+<li>
+<a href="http://www.benjaminlog.com/">김재호</a> - C++</li>
+<li><a href="https://brunch.co.kr/@pubjinson">김지영</a></li>
+<li><a href="http://hyeon.me/">김지현</a></li>
+<li>
+<a href="http://forensic-proof.com/">김진국</a> - 포렌식</li>
+<li><a href="http://rein.kr/blog/">김진욱</a></li>
+<li>
+<a href="http://www.memoriesreloaded.net/">김창원</a> - 실리콘밸리</li>
+<li>
+<a href="http://agile.egloos.com/">김창준</a> - 애자일</li>
+<li><a href="http://subicura.com/">김충섭</a></li>
+<li><a href="http://huns.me/">김코딩</a></li>
+<li>
+<a href="http://taegon.kim/">김태곤</a> - 웹</li>
+<li><a href="http://blog.gaerae.com/">김태균</a></li>
+<li>
+<a href="https://beyondj2ee.wordpress.com/">김태기</a> -Java</li>
+<li>
+<a href="http://androidhuman.com/">김태호</a> - 안드로이드</li>
+<li>
+<a href="https://medium.com/@xissy">김태호</a> - 스타트업</li>
+<li>
+<a href="https://brunch.co.kr/@myte">김태헌</a> - 해외 취업</li>
+<li><a href="http://kblog.popekim.com/">김포프</a></li>
+<li>
+<a href="http://www.mickeykim.com/">김현유(미키김)</a> - 구글</li>
+<li>
+<a href="http://www.gisdeveloper.co.kr/">김형준</a> - GIS</li>
+<li>
+<a href="http://flowerexcel.tistory.com/">김화수</a> - C++</li>
+<li>
+<a href="http://greentec.egloos.com/">김환희</a> - 게임개발</li>
+</ul>
 
-<!-- The drawer is always open in large screens. The header is always shown,
-  even in small screens. -->
-<div class="demo-layout">
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-              mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="mdl-layout-spacer"></div>
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                    mdl-textfield--floating-label mdl-textfield--align-right">
-          <div class="mdl-textfield__expandable-holder">
-            <input class="mdl-textfield__input" type="text" name="sample"
-                   id="fixed-header-drawer-exp" />
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">개발 블로그들</span>
-      <nav class="mdl-navigation" id="menu">
-      </nav>
+<h3>
+<a id="ㄴ" class="anchor" href="#%E3%84%B4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㄴ</h3>
+
+<ul>
+<li>
+<a href="http://www.rkttu.com/">남정현</a> - 클라우드</li>
+<li>
+<a href="http://namjmnam.blog.me/">남주명</a> - 보안</li>
+<li><a href="https://medium.com/@sbroh">노상범</a></li>
+<li>
+<a href="http://bugsfixed.blogspot.kr/">노용환</a>, <a href="http://somma.egloos.com/">노용환</a> - 윈도우즈 커널</li>
+<li><a href="http://korsnack.kr/">노재민</a></li>
+</ul>
+
+<h3>
+<a id="ㄷ" class="anchor" href="#%E3%84%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㄷ</h3>
+
+<ul>
+<li><a href="https://medium.com/@keendev">도경태</a></li>
+</ul>
+
+<h3>
+<a id="ㄹ" class="anchor" href="#%E3%84%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㄹ</h3>
+
+<ul>
+<li>
+<a href="http://occamsrazr.net/">류광</a> - 번역</li>
+<li><a href="http://ryulib.tistory.com/">류종택</a></li>
+<li><a href="http://www.jakemvc.com">류지형</a></li>
+</ul>
+
+<h3>
+<a id="ㅁ" class="anchor" href="#%E3%85%81" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅁ</h3>
+
+<ul>
+<li>
+<a href="https://brunch.co.kr/@kyeongwook-ma">마경욱</a> - 스타트업</li>
+<li><a href="https://brunch.co.kr/@aidenswmo">모상우</a></li>
+<li><a href="http://blog.lael.be/">문형환</a></li>
+</ul>
+
+<h3>
+<a id="ㅂ" class="anchor" href="#%E3%85%82" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅂ</h3>
+
+<ul>
+<li>
+<a href="http://hoonsbara.tistory.com/">박경훈(HOONS)</a> - 닷넷</li>
+<li>
+<a href="http://blog.naver.com/agebreak">박민근(알콜코더)</a> - 게임 개발</li>
+<li>
+<a href="http://earlybird.kr/">박민우</a> - Realm</li>
+<li><a href="http://likejazz.com/">박상길</a></li>
+<li><a href="https://sangminpark.wordpress.com/">박상민</a></li>
+<li>
+<a href="https://brunch.co.kr/@sanghoonpak">박상훈</a> - 인도네시아 IT 소식</li>
+<li>
+<a href="http://youngrok.com/">박영록</a> - 위키나무</li>
+<li>
+<a href="http://parkpd.egloos.com/">박일</a> - 게임 개발</li>
+<li>
+<a href="http://javajigi.net/">박재성(자바지기)</a> - Java</li>
+<li><a href="http://jhrogue.blogspot.kr/">박재호</a></li>
+<li>
+<a href="http://bagjunggyu.blogspot.kr/">박정규</a> - 리눅스</li>
+<li><a href="http://m.mkexdev.net/">박종명</a></li>
+<li><a href="http://lqez.github.io/">박현우</a></li>
+<li>
+<a href="http://1ambda.github.io/">박훈</a> - 함수형 언어</li>
+<li>
+<a href="http://bangjunyoung.blogspot.kr/">방준영</a> - Java</li>
+<li>
+<a href="http://www.thestartupbible.com/">배기홍</a> - IT 칼럼</li>
+<li>
+<a href="http://debop.tumblr.com/">배성혁</a> - 스칼라</li>
+<li>
+<a href="http://whiteship.me/">백기선</a> - Java</li>
+<li>
+<a href="https://brunch.co.kr/@cleancode">백명석</a> - Java, OOP</li>
+<li>
+<a href="http://blog.daum.net/funfunction">범이</a> - FP</li>
+<li>
+<a href="http://blog.outsider.ne.kr/">변정훈</a> - 웹</li>
+<li><a href="http://blog.suminb.com/">변수민</a></li>
+<li>
+<a href="https://brunch.co.kr/@stevepark">Steve Park</a> - 미국 취업 성공기</li>
+</ul>
+
+<h3>
+<a id="ㅅ" class="anchor" href="#%E3%85%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅅ</h3>
+
+<ul>
+<li>
+<a href="https://github.com/sarojaba/awesome-devblog/blob/master/kwangyul.seo.md">서광열</a>(<a href="http://gamecodingschool.org/">블로그</a>) - 게임 개발</li>
+<li>
+<a href="https://brunch.co.kr/@elijah17">서오석</a> - Java</li>
+<li>
+<a href="http://seoz.com/">서주영</a> - 타이젠</li>
+<li>
+<a href="https://arload.wordpress.com/">손영수(arload)</a> - 개발방법론, Android</li>
+<li>
+<a href="https://sculove.github.io/blog/">손찬욱</a> - Web</li>
+<li>
+<a href="https://purluno.wordpress.com/">송영환</a> - Akka</li>
+<li><a href="http://saltfactory.net/">송성광</a></li>
+<li>
+<a href="http://emptydream.tistory.com/">송주성(빈꿈)</a> - IT 칼럼</li>
+<li><a href="https://medium.com/@it_sjh9973">송준현</a></li>
+<li><a href="http://www.talk-with-hani.com/">신승환</a></li>
+<li>
+<a href="http://www.jiniya.net/">신영진</a> - 보안</li>
+<li>
+<a href="http://uni2u.tistory.com/">신용윤</a> - 네트워크</li>
+<li><a href="http://zetlos.tistory.com/">신현묵</a></li>
+<li>
+<a href="http://hyeonseok.com/">신현석</a> - 웹</li>
+<li><a href="https://medium.com/ics-lab">신현식</a></li>
+</ul>
+
+<h3>
+<a id="ㅇ" class="anchor" href="#%E3%85%87" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅇ</h3>
+
+<ul>
+<li>
+<a href="http://ash84.net/">안성현</a> - Python</li>
+<li>
+<a href="http://toyfab.tistory.com/">안윤호</a> - 마이크로 프로세서</li>
+<li><a href="http://blog.ahnjungho.org/">안정호</a></li>
+<li>
+<a href="http://qnibus.com/">안종태</a> - iOS</li>
+<li>
+<a href="http://blog.naver.com/delmadang">양병규</a> - 칼럼</li>
+<li>
+<a href="https://brunch.co.kr/@promise4u">양준철</a> - 스타트업</li>
+<li>
+<a href="https://brunch.co.kr/@jisuyang">양지수</a> - IT 칼럼</li>
+<li>
+<a href="http://t-robotics.blogspot.kr/">엄태웅</a> - AI</li>
+<li><a href="https://only2sea.wordpress.com/">염재현</a></li>
+<li>
+<a href="http://kwangshin.pe.kr/">오광신</a> - 함수형 언어</li>
+<li><a href="http://www.flowdas.com/">오동권</a></li>
+<li>
+<a href="https://github.com/sarojaba/awesome-devblog/blob/master/enshahar.md">오현석</a>(<a href="http://www.enshahar.me/">블로그</a>) - 스칼라, 스위프트</li>
+<li><a href="http://yonght.tumblr.com/">용현택</a></li>
+<li><a href="http://blog.sarojaba.com/">우준혁</a></li>
+<li>
+<a href="http://jasonwi.com/">위현종</a> - 스타트업</li>
+<li>
+<a href="http://blog.naver.com/ehdrhs1004">유동곤</a> - C++</li>
+<li><a href="http://hipercube.tistory.com/">유주원</a></li>
+<li><a href="https://yous.be/">유차영</a></li>
+<li>
+<a href="http://www.joinc.co.kr/">윤상배</a> - 위키</li>
+<li>
+<a href="http://channy.creation.net/">윤석찬</a> - 오픈웹</li>
+<li><a href="http://mobicon.tistory.com/">윤영식</a></li>
+<li>
+<a href="http://changsuk.me/">윤창석</a> - 다음카카오</li>
+<li>
+<a href="https://brunch.co.kr/@brunch4nrs">윤청하</a> - 구글러</li>
+<li>
+<a href="http://blog.woniper.net/">이경원</a> - Java</li>
+<li><a href="https://justhackem.wordpress.com/">이규원</a></li>
+<li><a href="http://genesis8.tistory.com/">이도현</a></li>
+<li><a href="http://www.buggymind.com/">이병준</a></li>
+<li>
+<a href="http://yisangwook.tumblr.com/">이상욱</a> - 아키텍처 분석</li>
+<li><a href="http://surpreem.com/">이상주</a></li>
+<li><a href="https://medium.com/sunhyoups-story">이선협</a></li>
+<li><a href="http://www.shalomeir.com/">이성규</a></li>
+<li>
+<a href="http://blog.naver.com/santalsm">이성몽</a> - 기술사</li>
+<li>
+<a href="http://blog.scaloid.org/">이성호</a> - 스칼라, 안드로이드</li>
+<li><a href="http://blog.xcoda.net/">이세우</a></li>
+<li><a href="http://daddycat.blogspot.kr/">이윤창</a></li>
+<li>
+<a href="http://nixsense.net/">이일희(제닉스)</a> - IT 리뷰</li>
+<li>
+<a href="http://pyrasis.com/">이재홍</a> - Go</li>
+<li><a href="blog.rainygirl.com">이준행</a></li>
+<li><a href="http://jihoonl.notemywish.com/">이지훈</a></li>
+<li>
+<a href="https://ask.festi.kr/">이진석</a> - Django</li>
+<li><a href="https://medium.com/@wangmul">이충영</a></li>
+<li>
+<a href="http://www.haeyounglee.com/">이해영</a> - 개발자 영어</li>
+<li>
+<a href="http://hyunseob.github.io/">이현섭</a> - Web</li>
+<li>
+<a href="http://subl.ee/">이흥섭</a> - 게임</li>
+<li>
+<a href="http://www.jimmyrim.com/">임지훈</a> - 스타트업 투자</li>
+<li>
+<a href="http://epicdevs.com/">임희진</a> - Back-end</li>
+<li>
+<a href="https://lckymn.com/about-kevin">Kevin Lee</a> - 자바</li>
+</ul>
+
+<h3>
+<a id="ㅈ" class="anchor" href="#%E3%85%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅈ</h3>
+
+<ul>
+<li><a href="http://blog.java2game.com/">장선진</a></li>
+<li>
+<a href="http://www.jangkunblog.com/">장성민</a> - 웹접근성</li>
+<li><a href="http://lastmind.net/">장요셉</a></li>
+<li><a href="http://devyongsik.tistory.com/">장용석</a></li>
+<li>
+<a href="http://naleejang.tistory.com/">장현정</a> - OpenStack</li>
+<li>
+<a href="http://openlook.org/wp/">장혜식</a> - 빅데이터</li>
+<li><a href="http://www.allofsoftware.net/">전규현</a></li>
+<li><a href="http://www.php5.me/">전동규</a></li>
+<li>
+<a href="http://hosangjeon.com/">전호상</a> - 서버사이드</li>
+<li>
+<a href="http://freesearch.pe.kr/">전희원(고감자)</a> - 빅데이터</li>
+<li>
+<a href="https://www.lesstif.com/">정광섭</a> - Linux</li>
+<li>
+<a href="http://www.moreagile.net/">정도현</a> - 개발방법론</li>
+<li>
+<a href="http://blrunner.com/">정재화</a> - 타조 커미터. 하둡</li>
+<li><a href="http://uzys.net/">정재훈</a></li>
+<li>
+<a href="http://blog.benelog.net/">정상혁</a> - Java</li>
+<li>
+<a href="http://www.sysnet.pe.kr/">정성태</a> - 닷넷</li>
+<li>
+<a href="http://sadang-hobbits.github.io/">정윤성</a> - Rust</li>
+<li>
+<a href="http://youknowone.github.io/">정윤원</a> - IOS</li>
+<li>
+<a href="http://health20.kr/">정지훈</a> - IT 역사, 미래 트렌드</li>
+<li><a href="http://seapy.com/">정창훈</a></li>
+<li>
+<a href="http://bcho.tistory.com/">조대협(bcho)</a> - Java</li>
+<li>
+<a href="http://sungmooncho.com/">조성문</a> - 실리콘밸리</li>
+<li>
+<a href="http://sapzapee.tistory.com/">조수현</a> - 자료구조</li>
+<li>
+<a href="http://kivol.net/">조승연</a> - 칼럼</li>
+<li><a href="http://aeternum.egloos.com/">조영호</a></li>
+<li>
+<a href="https://brunch.co.kr/@insuk">조인석</a> - SW 칼럼</li>
+<li>
+<a href="http://resistan.com/">조현진</a> - 웹접근성</li>
+<li>
+<a href="http://blog.coderifleman.com/">주우영</a> - React.js</li>
+<li>
+<a href="http://softwaregeeks.org/">진성주</a> - 오픈소스</li>
+<li>
+<a href="https://brunch.co.kr/@yongjinjinipln">진용진</a> - IT 칼럼</li>
+</ul>
+
+<h3>
+<a id="ㅊ" class="anchor" href="#%E3%85%8A" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅊ</h3>
+
+<ul>
+<li><a href="http://khanrc.tistory.com/">차준범</a></li>
+<li><a href="http://blog.doortts.com/">채수원</a></li>
+<li><a href="http://blog.hardtack.me/">최건우</a></li>
+<li>
+<a href="http://www.baekjoon.com/">최백준</a> - 알고리즘</li>
+<li>
+<a href="http://javacan.tistory.com/">최범균</a> - Java</li>
+<li><a href="http://yumere.tistory.com/">최성재</a></li>
+<li><a href="http://andromedarabbit.net/">최재훈</a></li>
+<li>
+<a href="http://johnwook.com/">최종욱</a> - 웹</li>
+<li><a href="http://blog.0xabcdef.com/">최종찬</a></li>
+<li>
+<a href="http://junegunn.kr/">최준건</a> - 다음카카오</li>
+<li>
+<a href="http://jacking.tistory.com/">최흥배</a> - C++</li>
+</ul>
+
+<h3>
+<a id="ㅎ" class="anchor" href="#%E3%85%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅎ</h3>
+
+<ul>
+<li><a href="https://medium.com/@cookatrice">하동우</a></li>
+<li>
+<a href="http://www.mimul.com/">하호진(Mimul)</a> - 칼럼</li>
+<li><a href="http://www.sangkon.com/">한상곤</a></li>
+<li>
+<a href="http://kkamagui.tistory.com/">한승훈(kkamagui)</a> - OS</li>
+<li><a href="https://youngbin.tk/">한영빈</a></li>
+<li><a href="http://www.kazikai.net/">한정현</a></li>
+<li><a href="https://medium.com/@jooyunghan">한주영</a></li>
+<li><a href="http://import.re/">허재위</a></li>
+<li>
+<a href="https://joone.wordpress.com/">허준회(주네)</a>, <a href="http://www.joone.net/">허준회(주네)</a>
+</li>
+<li>
+<a href="http://blog.naver.com/hgh73">홍길한</a> - 워드프레스</li>
+<li><a href="http://hongminhee.org/">홍민희(dahlia)</a></li>
+<li>
+<a href="http://blog.fupfin.com/">홍성철</a> - 함수형 언어</li>
+<li><a href="https://medium.com/@sungcheulhong">홍성철</a></li>
+<li>
+<a href="hackerwins.github.io/">홍영택</a> - 다음카카오</li>
+<li><a href="http://xrath.com/">황장호</a></li>
+<li>
+<a href="http://www.futurewalker.kr/">황병선</a> - IT 칼럼</li>
+<li>
+<a href="http://pragmaticstory.com/">황상철</a> - 애자일</li>
+<li>
+<a href="http://dolppi.egloos.com/">황석주</a> - 금융공학</li>
+<li>
+<a href="http://recipes.egloos.com/">히언</a> - 하드웨어</li>
+<li><a href="http://soomong.net/">현수명</a></li>
+<li>
+<a href="http://iam-hs.com/">현승</a> - 리버싱</li>
+<li>
+<a href="https://jhyun.wordpress.com/">현준호</a> - 웹접근성</li>
+</ul>
+
+<h2>
+<a id="국내-팀-사이트" class="anchor" href="#%EA%B5%AD%EB%82%B4-%ED%8C%80-%EC%82%AC%EC%9D%B4%ED%8A%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>국내 팀 사이트</h2>
+
+<h3>
+<a id="ㄱ-ㅅ" class="anchor" href="#%E3%84%B1-%E3%85%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㄱ-ㅅ</h3>
+
+<ul>
+<li>
+<a href="http://gabia-frontend-dev.com/">가비아 프론트엔드 개발팀</a> - 웹</li>
+<li>
+<a href="http://gamedevforever.com/">게임개발 포에버</a> - 포프, 친절한티스, 알콜코더 민군</li>
+<li>
+<a href="http://iamprogrammer.io/">나는 프로그래머다</a> - 임작가, 데니스, 정개발</li>
+<li><a href="http://helloworld.naver.com/">네이버</a></li>
+<li>
+<a href="http://nuli.navercorp.com/sharing/blog/main">네이버 널리 블로그</a> - 웹 표준, 접근성</li>
+<li><a href="http://www.nextree.co.kr/">넥스트리</a></li>
+<li><a href="http://www.netmanias.com/ko/">넷매니아즈</a></li>
+<li><a href="http://dna.daum.net/lens/">다음 DNA Lens</a></li>
+<li><a href="http://techblog.daliworks.net/">달리웍스</a></li>
+<li>
+<a href="https://indidev.net/">독립 개발자 네트워크</a> - C/C++</li>
+<li><a href="http://www.whydsp.org/">모두의연구소 기술블로그</a></li>
+<li><a href="http://engineering.buzzni.com/">버즈니</a></li>
+<li><a href="http://blog.secmem.org/">삼성소프트웨어멤버십</a></li>
+<li>
+<a href="http://www.solanara.net/">솔라나라</a> - 솔라리스</li>
+<li><a href="http://styleshare.github.io/">스타일쉐어</a></li>
+<li><a href="http://slownews.kr/category/tech">슬로우뉴스</a></li>
+<li><a href="http://ciscokrblog.com/">시스코</a></li>
+</ul>
+
+<h3>
+<a id="ㅇ-ㅎ" class="anchor" href="#%E3%85%87-%E3%85%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ㅇ-ㅎ</h3>
+
+<ul>
+<li><a href="http://blogs.idincu.com/dev/">아이디인큐</a></li>
+<li><a href="http://dev.rsquare.co.kr/">알스퀘어</a></li>
+<li>
+<a href="http://www.acornpub.co.kr/blog">에이콘</a> - 책</li>
+<li><a href="http://www.sntsoft.co.kr/">에스엔티소프트</a></li>
+<li><a href="http://blog.ncsoft.com/">엔씨소프트</a></li>
+<li><a href="http://blog.embian.com/">엠비안</a></li>
+<li>
+<a href="http://opennet.or.kr/">오픈넷</a> - 웹접근성</li>
+<li><a href="https://opentutorials.org/">오픈튜토리얼스</a></li>
+<li>
+<a href="http://eclipse.or.kr/">위클립스</a> - 이클립스. 지율.</li>
+<li><a href="http://blog.weirdx.io/">이상한모임</a></li>
+<li><a href="http://bigmatch.i-um.net/">이음소시어스</a></li>
+<li>
+<a href="http://www.insightbook.co.kr/">인사이트</a> - 책</li>
+<li>
+<a href="http://jpub.tistory.com/">제이펍</a> - 책</li>
+<li><a href="http://www.zdnet.co.kr/">지디넷 코리아</a></li>
+<li><a href="http://aalog.tistory.com/">카이스트 Applied Algorithm Lab.</a></li>
+<li><a href="http://tech.kakao.com/">카카오 기술 블로그</a></li>
+<li>
+<a href="http://kernelstudy.net/">커널스터디</a> - 리눅스 커널</li>
+<li><a href="http://www.codingnews.net/">코딩뉴스</a></li>
+<li><a href="http://www.clearboth.org/">클리어보스</a></li>
+<li><a href="http://www.techsuda.com/">테크수다</a></li>
+<li>
+<a href="http://www.techm.kr/home/">테크엠</a> - IT</li>
+<li><a href="http://techholic.co.kr/">테크홀릭</a></li>
+<li><a href="http://tmondev.blog.me/">티켓몬스터</a></li>
+<li>
+<a href="http://gameplanner.cafe24.com/">한국게임기획자모임</a> - 전동주</li>
+<li><a href="http://www.hanbit.co.kr/network/">한빛네트워크</a></li>
+</ul>
+
+<h3>
+<a id="a-z" class="anchor" href="#a-z" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A-Z</h3>
+
+<ul>
+<li><a href="http://www.ciokorea.com/">CIO</a></li>
+<li>
+<a href="http://dogfeet.github.io/">dogfeet</a> - 박창우, 이신, 최용재</li>
+<li>
+<a href="http://www.ebrain.kr/category/blogs/">eBrain Blog</a> - HR</li>
+<li><a href="http://googledevkr.blogspot.kr/">Google</a></li>
+<li>
+<a href="http://www.iamroot.org/">IAMROOT</a> - 리눅스 커널 스터디 그룹</li>
+<li><a href="http://www.itworld.co.kr/">IT월드</a></li>
+<li><a href="http://blog.lgcns.com/">LG CNS</a></li>
+<li>
+<a href="http://hacks.mozilla.or.kr/">Mozilla Hack</a>, <a href="https://developer.mozilla.org/ko/">Mozilla Developer</a>
+</li>
+<li>
+<a href="http://slipp.net/">SLiPP</a> - 박재성, 김현기, 오진우</li>
+<li><a href="http://spoqa.github.io/">Spoqa</a></li>
+<li><a href="http://readme.skplanet.com/">SK 플래닛</a></li>
+<li><a href="http://engineering.tumblr.com/">Tumblr</a></li>
+<li><a href="http://engineering.vcnc.co.kr/">VCNC</a></li>
+<li><a href="http://webframeworks.kr/">Web Framework</a></li>
+</ul>
+
+<h2>
+<a id="국외-개인-사이트" class="anchor" href="#%EA%B5%AD%EC%99%B8-%EA%B0%9C%EC%9D%B8-%EC%82%AC%EC%9D%B4%ED%8A%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>국외 개인 사이트</h2>
+
+<ul>
+<li>
+<a href="http://www.adam-bien.com/roller/abien/">Adam Bien</a> - Real World Java EE Patterns 저자</li>
+<li>
+<a href="http://andy.pragprog.com/">Andy Hunt</a> - 실용주의 프로그래머, 프로그래밍 루비 공저</li>
+<li>
+<a href="http://lucumr.pocoo.org/">Armin Ronacher</a> - Flask, Lektor 개발자</li>
+<li>
+<a href="https://assafmuller.com/">Assaf Muller</a> - OpenStack, SDN</li>
+<li>
+<a href="http://bramcohen.com/">Bram Cohen</a> - 비트토렌트 창시자</li>
+<li>
+<a href="https://brendaneich.com/">Brendan Eich</a> - Javascript 창시자</li>
+<li>
+<a href="http://chadfowler.com/">Chad Fowler</a> - Rails Recipes 저자</li>
+<li>
+<a href="http://chrisrng.svbtle.com/">Chris Ng</a> - Front-end</li>
+<li>
+<a href="http://cesquivias.github.io/">Cristian Esquivias</a> - Java, Truffle</li>
+<li>
+<a href="http://danwebb.net/">Dan Webb</a> - 프론트엔드 개발자</li>
+<li>
+<a href="http://pragdave.me/">David Thomas</a> - 실용주의 프로그래머 공저. Elixir 언어.</li>
+<li>
+<a href="http://shiffman.net/">Daniel Shiffman</a> - Processing</li>
+<li><a href="http://meyerweb.com/">Eric A. Meyer</a></li>
+<li>
+<a href="http://blog.jamesdbloom.com/">James D Bloom</a> - JVM</li>
+<li>
+<a href="http://nighthacks.com/roller/jag/">James Gosling</a> - Java 창시자</li>
+<li>
+<a href="http://blog.codinghorror.com/">Jeff Atwood</a> - 스택오버플로 주인장</li>
+<li>
+<a href="http://langrsoft.com/jeff/">Jeff Langr</a> - 지금길로 빠르게 배울 수 있는 자바 저자</li>
+<li>
+<a href="http://www.joelonsoftware.com/">Joel Spolsky</a> - 조엘온소프트웨어 저자. 개발방법론.</li>
+<li><a href="http://jtfmumm.com/blog/">John Mumm</a></li>
+<li>
+<a href="http://ejohn.org/">John Resig</a> - jQuery 창시자. 칸 아카데미 개발자.</li>
+<li>
+<a href="http://www.vogella.com/">Lars Vogell</a> - 이클립스 커미터</li>
+<li>
+<a href="http://markdotto.com/">Mark Otto</a> - Bootstrap 창시자. 디자이너.</li>
+<li>
+<a href="http://martinfowler.com/">Martin Fowler</a> - 리팩토링 창시자</li>
+<li><a href="https://blog.gouline.net/">Mike Gouline</a></li>
+<li>
+<a href="http://blog.codefx.org/">Nicolai Parlog</a> - Java</li>
+<li>
+<a href="http://paulbakker.io/">Paul Bakker</a> - Modular Cloud Apps with OSGI 저자</li>
+<li>
+<a href="http://blog.cleancoder.com/">Robert C. Martin</a> - 클린 코드 저자</li>
+<li>
+<a href="http://www.hanselman.com/">Scott Hanselman</a> - ASP.NET</li>
+<li>
+<a href="http://blog.joda.org/">Stephen Colebourne</a> - Joda-Time 창시자</li>
+<li>
+<a href="https://www.willmcgugan.com/">Will McGugan</a> - Moya(no-Python Python Web Framework)</li>
+</ul>
+
+<h2>
+<a id="국외-팀-사이트" class="anchor" href="#%EA%B5%AD%EC%99%B8-%ED%8C%80-%EC%82%AC%EC%9D%B4%ED%8A%B8" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>국외 팀 사이트</h2>
+
+<h3>
+<a id="a-m" class="anchor" href="#a-m" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A-M</h3>
+
+<ul>
+<li>
+<a href="http://alistapart.com/">A list apart</a> - Web</li>
+<li><a href="http://android-developers.blogspot.kr/">Android Developers Blog</a></li>
+<li><a href="http://adndevblog.typepad.com/autocad/">AutoCAD DevBlog</a></li>
+<li><a href="http://devblog.blackberry.com/">BlackBerry Developer Blog</a></li>
+<li><a href="https://codeascraft.com/">Code as Craft(Andrew Johnson)</a></li>
+<li><a href="http://cacm.acm.org/blogs/about-the-blogs">Comunications of the ACM</a></li>
+<li><a href="http://www.drdobbs.com/blogs/">Dr.Dobb's</a></li>
+<li><a href="https://blogs.dropbox.com/tech/">Dropbox Tech Blog</a></li>
+<li>
+<a href="http://blog.durandal.io/">Durandal</a> - Web</li>
+<li><a href="https://dzone.com/">DZone</a></li>
+<li><a href="https://code.facebook.com/">Facebook Code</a></li>
+<li><a href="https://www.facebook.com/FacebookDevelopers">Facebook Developers</a></li>
+<li><a href="http://githubengineering.com/">Github Engineering</a></li>
+<li>
+<a href="http://blog.golang.org/">Go Language</a> - Go</li>
+<li><a href="https://dev.ghost.org/">Ghost Development Blog</a></li>
+<li>
+<a href="http://www.gvgai.net/">GVG-AI Competition</a> - AI</li>
+<li><a href="http://www.infoq.com/">InfoQ</a></li>
+<li><a href="http://www.javacodegeeks.com/">Java Code Geek</a></li>
+<li>
+<a href="http://www.javaworld.com/">Java World</a> - Java</li>
+<li>
+<a href="http://www.jguru.com/">jGuru</a> - Java</li>
+<li>
+<a href="http://javarevisited.blogspot.sg/">Javarevisited</a> - Java</li>
+<li><a href="http://blog.jetbrains.com/">JetBrains Blog</a></li>
+<li><a href="http://developers.linecorp.com/blog/">LINE</a></li>
+<li>
+<a href="http://lua.space/">Lua.Space</a> - Lua Community Blog</li>
+<li><a href="https://blogs.windows.com/msedgedev/">Microsoft Edge Dev Blog</a></li>
+<li><a href="http://blogs.msdn.com/b/exchangedev/">Microsoft Outlook Dev Blog</a></li>
+<li><a href="http://dev.mysql.com/">MySQL</a></li>
+</ul>
+
+<h3>
+<a id="n-z" class="anchor" href="#n-z" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>N-Z</h3>
+
+<ul>
+<li><a href="http://techblog.netflix.com/">Netflix Tech Blog</a></li>
+<li><a href="https://blog.newrelic.com/">New Relic</a></li>
+<li>
+<a href="http://nordicapis.com/blog/">Nordic API</a> - Java, Scala, Spark</li>
+<li>
+<a href="https://www.opencredo.com/blog/">OpenCredo</a> - Java</li>
+<li>
+<a href="http://developer.parrot.com/blog/">Parrot Dev Blog</a> - Drone</li>
+<li><a href="https://devblog.paypal.com/">PayPal Developer</a></li>
+<li><a href="https://blog.prismatik.com.au/">Prismatik</a></li>
+<li><a href="http://developerblog.redhat.com/">Red Hat Developer Blog</a></li>
+<li>
+<a href="http://engineering.riotgames.com/">Riot Games Engineering</a> - Game</li>
+<li><a href="https://blog.risingstack.com/">RisingStack</a></li>
+<li>
+<a href="http://blog.rust-lang.org/">Rust Language</a> - Rust</li>
+<li><a href="http://security.samsungmobile.com/">Samsung Mobile Security Blog</a></li>
+<li>
+<a href="http://blog.scalac.io/">Scalac</a> - Scala, Akka</li>
+<li>
+<a href="https://www.sdxcentral.com/">SDxCentral</a> - SDx</li>
+<li><a href="http://www.stackbuilders.com/">Stack Builder</a></li>
+<li><a href="http://blog.takipi.com/">Takipi blog</a></li>
+<li><a href="http://thenewstack.io/">The New Stack</a></li>
+<li><a href="http://www.toptal.com/blog">Toptal Engineering Blog</a></li>
+<li><a href="http://devblog.uber.com/">Uber Developer Blog</a></li>
+<li>
+<a href="http://blogs.unity3d.com/">Unity</a> - 3D Graphics</li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
-    <main class="mdl-layout__content">
-      <div class="page-content"><!-- Your content goes here --></div>
-    </main>
-  </div>
-</div>
-  
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
-
