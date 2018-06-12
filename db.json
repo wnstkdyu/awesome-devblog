@@ -88,7 +88,6 @@
   {
     "name": "강준영",
     "blog": "http://juneyoung.kr/",
-    "rss": "https://juneyoung-kang.github.io/blog/feed",
     "description": "Web",
     "facebook": "https://www.facebook.com/develophics",
     "instagram": "https://www.instagram.com/juneyoung_kang/",
@@ -1354,6 +1353,15 @@
     "googleplus": "https://plus.google.com/100380198405576126401"
   },
   {
+    "name": "김형철",
+    "blog": "https://sites.google.com/site/hcgoon",
+    "rss": "",
+    "description": "Java, 개인위키(주로 일본어)",
+    "facebook": "https://www.facebook.com/buzzricksons",
+    "github": "https://github.com/buzzricksons",
+    "linkedin": "https://www.linkedin.com/in/hyungcheol-kim"
+  },
+  {
     "name": "김형록",
     "blog": "http://rokrokss.com",
     "rss": "http://rokrokss.com/feed.xml",
@@ -2353,11 +2361,14 @@
   },
   {
     "name": "송재윤",
-    "blog": "http://blog.jaeyoon.io/",
-    "rss": "http://blog.jaeyoon.io/feed/",
+    "blog": "https://blog.jaeyoon.io/",
+    "rss": "https://blog.jaeyoon.io/feed.xml",
     "description": "Front-end",
     "facebook": "https://www.facebook.com/i.am.jyoon",
-    "github": "https://github.com/jyoonsong"
+    "github": "https://github.com/jyoonsong",
+    "linkedin": "https://www.linkedin.com/in/jyoonsong/",
+    "instagram": "https://www.instagram.com/jaeyo_on_/",
+    "dribbble": "https://dribbble.com/JaeYoon"
   },
   {
     "name": "송주성(빈꿈)",
@@ -2523,11 +2534,11 @@
   },
   {
     "name": "안도형",
-    "blog": "https://emaren84.github.io/",
-    "rss": "https://emaren84.github.io/rss.xml",
+    "blog": "https://adhrinae.github.io/",
+    "rss": "https://adhrinae.github.io/rss.xml",
     "description": "Javascript",
-    "facebook": "https://www.facebook.com/emaren84",
-    "twitter": "https://twitter.com/devRinae",
+    "facebook": "https://www.facebook.com/adh.rinae",
+    "twitter": "https://twitter.com/adhrinae",
     "medium": "https://medium.com/@rinae"
   },
   {
@@ -2565,6 +2576,16 @@
     "blog": "http://ahnseungkyu.com/",
     "rss": "http://ahnseungkyu.com/rss",
     "description": "OpenStack"
+  },
+  {
+    "name": "안영선",
+    "blog": "https://lovemewithoutall.github.io/",
+    "rss": "https://lovemewithoutall.github.io/feed.xml",
+    "description": "Android, Web",
+    "facebook": "https://www.facebook.com/youngsun.ahn.14",
+    "linkedin": "https://www.linkedin.com/in/youngseon-ahn/",
+    "github": "https://github.com/LoveMeWithoutAll",
+    "twitter": "https://twitter.com/@Ahn_YoungSun"
   },
   {
     "name": "안영회",
@@ -3606,6 +3627,8 @@
     "twitter": "https://twitter.com/cjred77",
     "facebook": "https://www.facebook.com/cjred77",
     "github": "https://github.com/redrebel",
+    "linkedin": "https://www.linkedin.com/in/junggeun-lee/",
+    "slideshare": "https://www.slideshare.net/redrebel",
     "home": "http://www.cjred.net/index2.html"
   },
   {
@@ -4952,6 +4975,13 @@
     "rss": "http://qwefgh90.github.io/feed.xml",
     "description": "웹/번역, 컴퓨터 공학 분야",
     "github": "https://github.com/qwefgh90"
+  },
+  {
+    "name": "최창하",
+    "blog": "https://alklid.github.io/dlog/",
+    "rss": "https://alklid.github.io/dlog/feed",
+    "description": "Spark",
+    "github": "https://github.com/alklid"
   },
   {
     "name": "최철호",
